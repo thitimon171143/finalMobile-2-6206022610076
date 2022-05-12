@@ -79,12 +79,12 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               contentPadding: EdgeInsets.only(right: 30, left: 36),
               title: Text(docs[index]['name']),
-              trailing: Text(docs[index]['result']),
+              trailing: Text('BMI : '+docs[index]['result']),
               subtitle: Text(
-                'Weight'+docs[index]['weight'] +
-                ' Height'+docs[index]['height'] +
-                ' Age'+docs[index]['age'] +
-                ' Sex'+docs[index]['sex']
+                'Weight : '+docs[index]['weight'] +
+                '   Height : '+docs[index]['height'] +
+                ' \nAge : '+docs[index]['age'] +
+                '        Sex : '+docs[index]['sex']
                 ),
             ),
           );
