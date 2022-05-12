@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
       ),
       home: MyHomePage(title:'Flutter Demo Home Page'),
     );
@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff00BCD1),
+      backgroundColor: Colors.grey[400],
       appBar: AppBar(
         //backgroundColor: Color.fromRGBO(56, 75, 49, 1.0),
         title: Text("BMI Calculator"),
@@ -81,10 +81,10 @@ class _MyHomePageState extends State<MyHomePage> {
               title: Text(docs[index]['name']),
               trailing: Text(docs[index]['result']),
               subtitle: Text(
-                'Weight '+docs[index]['weight'] +
-                ' Height '+docs[index]['height'] +
-                ' Age '+docs[index]['age'] +
-                ' Sex '+docs[index]['sex']
+                'Weight'+docs[index]['weight'] +
+                ' Height'+docs[index]['height'] +
+                ' Age'+docs[index]['age'] +
+                ' Sex'+docs[index]['sex']
                 ),
             ),
           );

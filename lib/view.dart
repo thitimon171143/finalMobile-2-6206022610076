@@ -33,7 +33,7 @@ class _ViewState extends State<View> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff00BCD1),
+      backgroundColor: Colors.grey[400],
       appBar: AppBar(
         //backgroundColor: Color.fromRGBO(56, 75, 49, 1.0),
         title: Text("BMI View"),

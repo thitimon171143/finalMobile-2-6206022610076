@@ -18,6 +18,7 @@ class _AddState extends State<Add> {
   TextEditingController ageController = new TextEditingController();
   TextEditingController sexController = new TextEditingController();
   TextEditingController resultController = new TextEditingController();
+  double _result;
   @override
   void initState() {
     super.initState();
@@ -26,7 +27,7 @@ class _AddState extends State<Add> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff00BCD1),
+      backgroundColor: Colors.grey[400],
       appBar: AppBar(
         //backgroundColor: Color.fromRGBO(56, 75, 49, 1.0),
         title: Text("BMI Add"),
@@ -81,14 +82,36 @@ class _AddState extends State<Add> {
                 decoration: inputDecoration("Sex"),
                 controller: sexController,
               ),
-              /*SizedBox(
+              SizedBox(
                 height: 20,
               ),
               TextFormField(
                 style: TextStyle(color: Colors.white),
                 decoration: inputDecoration("Result"),
                 controller: resultController,
-              ),*/
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              RaisedButton(
+                color: Colors.black,
+                child: Text(
+                  "Calculate",
+                  style: TextStyle(color: Colors.white),
+                ),
+                onPressed: calculateBMI,
+              ),
+              SizedBox(height: 20),
+              Text(
+                _result == null
+                    ? "! Enter Value !"
+                    : "${_result.toStringAsFixed(2)}",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 19.4,
+                  fontWeight: FontWeight.w500,
+                ),
+              )
             ],
           ),
         ),
@@ -108,15 +131,14 @@ class _AddState extends State<Add> {
                   ageController.text,
                   sexController.text,
                   resultController.text,
-
-                  
                 );
                 Navigator.pop(context, true);
               },
               child: Text(
-                "Calculate",
+                "Add",
                 style: TextStyle(color: Colors.white),
-              )),
+              ),
+            ),
         ),
       ),
     );
@@ -140,5 +162,14 @@ class _AddState extends State<Add> {
         ),
       ),
     );
+  }
+    void calculateBMI() {
+    double height = double.parse(heightController.text) / 100;
+    double weight = double.parse(weightController.text);
+    double heightSquare = height * height;
+    double result = weight / heightSquare;
+    //resultController.text = result.toString();
+    _result = result;
+    setState(() {});
   }
 }
